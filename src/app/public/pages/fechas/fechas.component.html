@@ -1,1 +1,20 @@
-<p>fechas works!</p>
+<table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">id</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">predeterminado</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">fecha</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let par of lstFechas">
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.id }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.fechaTexto }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.predeterminado }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.fecha }}</td>
+          </tr>
+      <!-- Más filas aquí -->
+    </tbody>
+  </table>
+  

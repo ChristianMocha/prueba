@@ -1,2 +1,38 @@
-<p>partido works!</p>
-
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre Estadio</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">nombre Local</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">nombre Visitante</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">resultado Local</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">resultado Visitante</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Logo Local</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Logo Visita</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción Estado</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let par of lstPartidos">
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.fecha | date:'yyyy-MM-dd' }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.nombreEstadio }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.nombreLocal }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.nombreVisita }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.resultadoLocal }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ par.resultadoVisita }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <img [src]="'urlimg' + par.rutaLogoLocal" alt="Logo Local" onerror="this.src='./assets/img/notFound.jpg'">
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <img [src]="'urlimg' + par.rutaLogoVisita" alt="Logo Visitante" onerror="this.src='./assets/img/notFound.jpg'">
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+             <p [ngStyle]="{ 'color': par.colorEstado }">
+                {{ par.descripcionEstado }}
+             </p>   
+            </td>
+          </tr>
+    </tbody>
+  </table>
+</div>
